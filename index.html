@@ -7,7 +7,7 @@
   <style>
     body {
       margin: 0;
-      background: #f6f1e7;
+      background: #f3efe6;
       height: 100vh;
       display: flex;
       justify-content: center;
@@ -16,11 +16,11 @@
     }
 
     .book {
-      width: 90%;
-      max-width: 1000px;
+      width: 92%;
+      max-width: 1100px;
       aspect-ratio: 4 / 3;
       background: white;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
       position: relative;
       overflow: hidden;
     }
@@ -35,44 +35,75 @@
       display: flex;
     }
 
+    /* ЛЕВАЯ СТРАНИЦА — ТЕКСТ */
     .text {
       width: 50%;
-      padding: 40px;
+      padding: 48px;
       box-sizing: border-box;
-      font-size: 22px;
-      line-height: 1.6;
       background: #fffaf0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
+    .text-inner {
+      font-size: 20px;
+      line-height: 1.55;
+    }
+
+    /* ПРАВАЯ СТРАНИЦА — КАРТИНКА */
     .image {
       width: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: white;
+      height: 100%;
     }
 
     .image img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
+    /* НАВИГАЦИЯ */
     .nav {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.45);
       color: white;
       border: none;
       font-size: 30px;
-      padding: 10px 15px;
+      padding: 10px 16px;
       cursor: pointer;
       z-index: 10;
     }
 
     .nav.left { left: 10px; }
     .nav.right { right: 10px; }
+
+    .nav:hover {
+      background: rgba(0,0,0,0.65);
+    }
+
+    /* МОБИЛЬНАЯ АДАПТАЦИЯ */
+    @media (max-width: 768px) {
+      .book {
+        aspect-ratio: 3 / 4;
+      }
+
+      .spread {
+        flex-direction: column;
+      }
+
+      .text, .image {
+        width: 100%;
+        height: 50%;
+      }
+
+      .text-inner {
+        font-size: 18px;
+      }
+    }
   </style>
 </head>
 
@@ -85,68 +116,81 @@
   <!-- ОБЛОЖКА -->
   <div class="spread active">
     <div class="text">
-      <h2>Колобок</h2>
-      <p>Русская народная сказка</p>
+      <div class="text-inner">
+        <h2>Колобок</h2>
+        <p>Русская народная сказка</p>
+      </div>
     </div>
     <div class="image">
-      <img src="images/cover.jpg">
+      <img src="images/cover.jpg" alt="Обложка">
     </div>
   </div>
 
   <!-- РАЗВОРОТ 1 -->
   <div class="spread">
     <div class="text">
-      <p>
-        Жили-были старик со старухой.<br><br>
-        Однажды говорит старик:<br>
-        — Испеки, старуха, колобок.<br><br>
-        — Из чего испечь-то? Муки нет.<br><br>
-        — Эх, старуха! По коробу поскреби,<br>
-        по сусеку помети —<br>
-        авось муки и наберётся.
-      </p>
+      <div class="text-inner">
+        <p>
+          Жили-были старик со старухой.<br><br>
+
+          Однажды говорит старик:<br>
+          — Испеки, старуха, колобок.<br><br>
+
+          — Из чего испечь-то? Муки нет.<br><br>
+
+          — Эх, старуха! По коробу поскреби,<br>
+          по сусеку помети —<br>
+          авось муки и наберётся.
+        </p>
+      </div>
     </div>
     <div class="image">
-      <img src="images/01-baking-request.jpg">
+      <img src="images/01-baking-request.jpg" alt="Просьба испечь колобок">
     </div>
   </div>
 
   <!-- РАЗВОРОТ 2 -->
   <div class="spread">
     <div class="text">
-      <p>
-        Старуха по коробу поскребла,<br>
-        по сусеку помела —<br>
-        и набралось муки две пригоршни.<br><br>
-        Замесила тесто на сметане,<br>
-        пожарила в масле<br>
-        и положила колобок<br>
-        на окошечко остудить.
-      </p>
+      <div class="text-inner">
+        <p>
+          Старуха по коробу поскребла,<br>
+          по сусеку помела —<br>
+          и набралось муки две пригоршни.<br><br>
+
+          Замесила тесто на сметане,<br>
+          пожарила в масле<br>
+          и положила колобок<br>
+          на окошечко остудить.
+        </p>
+      </div>
     </div>
     <div class="image">
-      <img src="images/02-baking.jpg">
+      <img src="images/02-baking.jpg" alt="Как испекли колобка">
     </div>
   </div>
 
   <!-- РАЗВОРОТ 3 -->
   <div class="spread">
     <div class="text">
-      <p>
-        Колобок полежал-полежал,<br>
-        да вдруг и покатился —<br><br>
-        с окна на лавку,<br>
-        с лавки на пол,<br>
-        по полу — к дверям,<br>
-        через порог — в сени,<br>
-        из сеней — на крыльцо,<br>
-        с крыльца — на двор,<br>
-        со двора — за ворота,<br>
-        дальше и дальше.
-      </p>
+      <div class="text-inner">
+        <p>
+          Колобок полежал-полежал,<br>
+          да вдруг и покатился —<br><br>
+
+          с окна на лавку,<br>
+          с лавки на пол,<br>
+          по полу — к дверям,<br>
+          через порог — в сени,<br>
+          из сеней — на крыльцо,<br>
+          с крыльца — на двор,<br>
+          со двора — за ворота,<br>
+          дальше и дальше.
+        </p>
+      </div>
     </div>
     <div class="image">
-      <img src="images/03-escape.jpg">
+      <img src="images/03-escape.jpg" alt="Побег колобка">
     </div>
   </div>
 
@@ -156,18 +200,22 @@
   const spreads = document.querySelectorAll('.spread');
   let current = 0;
 
-  function show(i) {
+  function show(index) {
     spreads[current].classList.remove('active');
-    current = i;
+    current = index;
     spreads[current].classList.add('active');
   }
 
   function next() {
-    if (current < spreads.length - 1) show(current + 1);
+    if (current < spreads.length - 1) {
+      show(current + 1);
+    }
   }
 
   function prev() {
-    if (current > 0) show(current - 1);
+    if (current > 0) {
+      show(current - 1);
+    }
   }
 </script>
 
