@@ -1,52 +1,98 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Baby Book</title>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Колобок</title>
 
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: #f6f3ef;
       font-family: Georgia, serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      background: #f6f1e8;
+      overflow: hidden;
     }
 
     .book {
-      width: 100%;
-      max-width: 420px;
-      padding: 16px;
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+    }
+
+    .page {
+      min-width: 100vw;
+      height: 100vh;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
       box-sizing: border-box;
     }
 
-    .cover {
-      width: 100%;
+    .page img {
+      max-width: 90%;
+      max-height: 65%;
       border-radius: 12px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-      display: block;
     }
 
-    .hint {
+    .text {
+      margin-top: 20px;
+      font-size: 18px;
+      line-height: 1.4;
       text-align: center;
-      margin-top: 12px;
-      font-size: 14px;
-      color: #777;
+      max-width: 600px;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="book">
-    <img src="images/cover.jpg" alt="Обложка книги" class="cover">
-    <div class="hint">Листай дальше →</div>
+<div class="book">
+
+  <!-- Обложка -->
+  <div class="page">
+    <img src="images/cover.jpg" alt="Колобок" />
+    <div class="text">
+      <strong>Колобок</strong><br>
+      Русская народная сказка
+    </div>
   </div>
+
+  <!-- Разворот 1 -->
+  <div class="page">
+    <img src="images/01-baking-request.jpg" alt="Старик и старуха" />
+    <div class="text">
+      Жили-были старик со старухой.<br><br>
+      — Испеки, старуха, колобок…
+    </div>
+  </div>
+
+  <!-- Разворот 2 -->
+  <div class="page">
+    <img src="images/02-baking.jpg" alt="Колобок на окошке" />
+    <div class="text">
+      Старуха по коробу поскребла,<br>
+      по сусеку помела…
+    </div>
+  </div>
+
+  <!-- Разворот 3 -->
+  <div class="page">
+    <img src="images/03-escape.jpg" alt="Побег колобка" />
+    <div class="text">
+      Колобок полежал-полежал<br>
+      да вдруг и покатился…
+    </div>
+  </div>
+
+  <!-- дальше картинки просто добавляются по шаблону -->
+
+</div>
 
 </body>
 </html>
