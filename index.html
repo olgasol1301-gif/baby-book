@@ -1,166 +1,52 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Русские сказки для малышей</title>
+  <meta charset="UTF-8">
+  <title>Baby Book</title>
 
-<style>
-body {
-  margin: 0;
-  background: #f7f3ee;
-  font-family: "Georgia", serif;
-}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.book {
-  max-width: 900px;
-  margin: 0 auto;
-}
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f6f3ef;
+      font-family: Georgia, serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-.spread {
-  display: flex;
-  min-height: 100vh;
-  border-bottom: 1px solid #ddd;
-}
+    .book {
+      width: 100%;
+      max-width: 420px;
+      padding: 16px;
+      box-sizing: border-box;
+    }
 
-.page {
-  width: 50%;
-  padding: 40px;
-  box-sizing: border-box;
-}
+    .cover {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      display: block;
+    }
 
-.text {
-  font-size: 26px;
-  line-height: 1.6;
-  color: #333;
-}
-
-h1 {
-  font-size: 36px;
-  margin-bottom: 20px;
-}
-
-.image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.image img {
-  max-width: 100%;
-  max-height: 80vh;
-  border-radius: 12px;
-}
-
-/* мобильная версия */
-@media (max-width: 768px) {
-  .spread {
-    flex-direction: column;
-  }
-  .page {
-    width: 100%;
-  }
-}
-</style>
+    .hint {
+      text-align: center;
+      margin-top: 12px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
 </head>
 
 <body>
-<div class="book">
 
-<!-- ОБЛОЖКА -->
-<div class="spread">
-  <div class="page text">
-    <h1>Русские сказки<br>и потешки</h1>
-    <p>Для самых маленьких<br>0+</p>
+  <div class="book">
+    <img src="images/cover.jpg" alt="Обложка книги" class="cover">
+    <div class="hint">Листай дальше →</div>
   </div>
-  <div class="page image">
-    <img src="images/cover.jpg" alt="Обложка книги">
-  </div>
-</div>
 
-<!-- КОЛОБОК 1 -->
-<div class="spread">
-  <div class="page text">
-    <h1>Колобок</h1>
-    <p>
-Испеки, старуха, колобок.<br>
-— Из чего испечь-то? Муки нет.<br>
-— По коробу поскреби, по сусеку помети.
-    </p>
-  </div>
-  <div class="page image">
-    <img src="images/kolobok-01.jpg" alt="Бабка печет колобка">
-  </div>
-</div>
-
-<!-- КОЛОБОК 2 -->
-<div class="spread">
-  <div class="page text">
-    <p>
-Покатился колобок по дорожке.<br>
-Навстречу ему заяц:
-— Колобок, колобок! Я тебя съем!
-    </p>
-  </div>
-  <div class="page image">
-    <img src="images/kolobok-02.jpg" alt="Колобок и заяц">
-  </div>
-</div>
-
-<!-- КОЛОБОК 3 -->
-<div class="spread">
-  <div class="page text">
-    <p>
-Катится колобок дальше — а навстречу волк.
-Но и от волка колобок укатился.
-    </p>
-  </div>
-  <div class="page image">
-    <img src="images/kolobok-03.jpg" alt="Колобок уходит от волка">
-  </div>
-</div>
-
-<!-- КОЛОБОК 4 -->
-<div class="spread">
-  <div class="page text">
-    <p>
-А лиса была хитрая.
-Обманула колобка и съела.
-    </p>
-  </div>
-  <div class="page image">
-    <img src="images/kolobok-04.jpg" alt="Лиса и колобок">
-  </div>
-</div>
-
-<!-- ПОТЕШКА -->
-<div class="spread">
-  <div class="page text">
-    <h1>Сорока-ворона</h1>
-    <p>
-Сорока-ворона кашу варила,<br>
-Деток кормила.
-    </p>
-  </div>
-  <div class="page image">
-    <img src="images/soroka.jpg" alt="Сорока-ворона">
-  </div>
-</div>
-
-<!-- ЛУКОМОРЬЕ -->
-<div class="spread">
-  <div class="page text">
-    <h1>У лукоморья</h1>
-    <p>
-У лукоморья дуб зелёный,<br>
-Златая цепь на дубе том.
-    </p>
-  </div>
-  <div class="page image">
-    <img src="images/lukomorye.jpg" alt="Кот ученый у дуба">
-  </div>
-</div>
-
-</div>
 </body>
 </html>
