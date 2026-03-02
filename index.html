@@ -1,51 +1,65 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Колобок</title>
+  <meta charset="UTF-8">
+  <title>Колобок — интерактивная книга</title>
 
   <style>
     body {
       margin: 0;
-      font-family: Georgia, serif;
-      background: #f6f1e8;
-      overflow: hidden;
+      background: #f6f1e7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: serif;
     }
 
     .book {
-      display: flex;
-      width: 100vw;
-      height: 100vh;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
+      position: relative;
+      width: 80%;
+      max-width: 800px;
+      aspect-ratio: 3 / 4;
+      background: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      overflow: hidden;
     }
 
     .page {
-      min-width: 100vw;
-      height: 100vh;
-      scroll-snap-align: start;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      display: none;
     }
 
     .page img {
-      max-width: 90%;
-      max-height: 65%;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
-    .text {
-      margin-top: 20px;
-      font-size: 18px;
-      line-height: 1.4;
-      text-align: center;
-      max-width: 600px;
+    .page.active {
+      display: block;
+    }
+
+    .nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      font-size: 30px;
+      padding: 10px 15px;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .nav.left {
+      left: 10px;
+    }
+
+    .nav.right {
+      right: 10px;
     }
   </style>
 </head>
@@ -53,46 +67,47 @@
 <body>
 
 <div class="book">
+  <button class="nav left" onclick="prevPage()">←</button>
+  <button class="nav right" onclick="nextPage()">→</button>
 
-  <!-- Обложка -->
-  <div class="page">
-    <img src="images/cover.jpg" alt="Колобок" />
-    <div class="text">
-      <strong>Колобок</strong><br>
-      Русская народная сказка
-    </div>
-  </div>
-
-  <!-- Разворот 1 -->
-  <div class="page">
-    <img src="images/01-baking-request.jpg" alt="Старик и старуха" />
-    <div class="text">
-      Жили-были старик со старухой.<br><br>
-      — Испеки, старуха, колобок…
-    </div>
-  </div>
-
-  <!-- Разворот 2 -->
-  <div class="page">
-    <img src="images/02-baking.jpg" alt="Колобок на окошке" />
-    <div class="text">
-      Старуха по коробу поскребла,<br>
-      по сусеку помела…
-    </div>
-  </div>
-
-  <!-- Разворот 3 -->
-  <div class="page">
-    <img src="images/03-escape.jpg" alt="Побег колобка" />
-    <div class="text">
-      Колобок полежал-полежал<br>
-      да вдруг и покатился…
-    </div>
-  </div>
-
-  <!-- дальше картинки просто добавляются по шаблону -->
-
+  <!-- СТРАНИЦЫ -->
+  <div class="page active"><img src="images/cover.jpg"></div>
+  <div class="page"><img src="images/01-baking-request.jpg"></div>
+  <div class="page"><img src="images/02-baking.jpg"></div>
+  <div class="page"><img src="images/03-escape.jpg"></div>
+  <div class="page"><img src="images/04-hare.jpg"></div>
+  <div class="page"><img src="images/05-hare-song.jpg"></div>
+  <div class="page"><img src="images/06-wolf.jpg"></div>
+  <div class="page"><img src="images/07-wolf-song.jpg"></div>
+  <div class="page"><img src="images/08-bear.jpg"></div>
+  <div class="page"><img src="images/09-bear-song.jpg"></div>
+  <div class="page"><img src="images/10-fox.jpg"></div>
+  <div class="page"><img src="images/11-fox-trick.jpg"></div>
+  <div class="page"><img src="images/12-ending.jpg"></div>
 </div>
+
+<script>
+  const pages = document.querySelectorAll('.page');
+  let current = 0;
+
+  function showPage(index) {
+    pages[current].classList.remove('active');
+    current = index;
+    pages[current].classList.add('active');
+  }
+
+  function nextPage() {
+    if (current < pages.length - 1) {
+      showPage(current + 1);
+    }
+  }
+
+  function prevPage() {
+    if (current > 0) {
+      showPage(current - 1);
+    }
+  }
+</script>
 
 </body>
 </html>
