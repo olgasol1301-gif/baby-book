@@ -2,43 +2,60 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Колобок — интерактивная книга</title>
+  <title>Колобок — книга</title>
 
   <style>
     body {
       margin: 0;
       background: #f6f1e7;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      font-family: serif;
+      font-family: Georgia, serif;
     }
 
     .book {
-      position: relative;
-      width: 80%;
-      max-width: 800px;
-      aspect-ratio: 3 / 4;
+      width: 90%;
+      max-width: 1000px;
+      aspect-ratio: 4 / 3;
       background: white;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      position: relative;
       overflow: hidden;
     }
 
-    .page {
-      width: 100%;
-      height: 100%;
+    .spread {
       display: none;
-    }
-
-    .page img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
     }
 
-    .page.active {
-      display: block;
+    .spread.active {
+      display: flex;
+    }
+
+    .text {
+      width: 50%;
+      padding: 40px;
+      box-sizing: border-box;
+      font-size: 22px;
+      line-height: 1.6;
+      background: #fffaf0;
+    }
+
+    .image {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: white;
+    }
+
+    .image img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
     }
 
     .nav {
@@ -54,58 +71,103 @@
       z-index: 10;
     }
 
-    .nav.left {
-      left: 10px;
-    }
-
-    .nav.right {
-      right: 10px;
-    }
+    .nav.left { left: 10px; }
+    .nav.right { right: 10px; }
   </style>
 </head>
 
 <body>
 
 <div class="book">
-  <button class="nav left" onclick="prevPage()">←</button>
-  <button class="nav right" onclick="nextPage()">→</button>
+  <button class="nav left" onclick="prev()">←</button>
+  <button class="nav right" onclick="next()">→</button>
 
-  <!-- СТРАНИЦЫ -->
-  <div class="page active"><img src="images/cover.jpg"></div>
-  <div class="page"><img src="images/01-baking-request.jpg"></div>
-  <div class="page"><img src="images/02-baking.jpg"></div>
-  <div class="page"><img src="images/03-escape.jpg"></div>
-  <div class="page"><img src="images/04-hare.jpg"></div>
-  <div class="page"><img src="images/05-hare-song.jpg"></div>
-  <div class="page"><img src="images/06-wolf.jpg"></div>
-  <div class="page"><img src="images/07-wolf-song.jpg"></div>
-  <div class="page"><img src="images/08-bear.jpg"></div>
-  <div class="page"><img src="images/09-bear-song.jpg"></div>
-  <div class="page"><img src="images/10-fox.jpg"></div>
-  <div class="page"><img src="images/11-fox-trick.jpg"></div>
-  <div class="page"><img src="images/12-ending.jpg"></div>
+  <!-- ОБЛОЖКА -->
+  <div class="spread active">
+    <div class="text">
+      <h2>Колобок</h2>
+      <p>Русская народная сказка</p>
+    </div>
+    <div class="image">
+      <img src="images/cover.jpg">
+    </div>
+  </div>
+
+  <!-- РАЗВОРОТ 1 -->
+  <div class="spread">
+    <div class="text">
+      <p>
+        Жили-были старик со старухой.<br><br>
+        Однажды говорит старик:<br>
+        — Испеки, старуха, колобок.<br><br>
+        — Из чего испечь-то? Муки нет.<br><br>
+        — Эх, старуха! По коробу поскреби,<br>
+        по сусеку помети —<br>
+        авось муки и наберётся.
+      </p>
+    </div>
+    <div class="image">
+      <img src="images/01-baking-request.jpg">
+    </div>
+  </div>
+
+  <!-- РАЗВОРОТ 2 -->
+  <div class="spread">
+    <div class="text">
+      <p>
+        Старуха по коробу поскребла,<br>
+        по сусеку помела —<br>
+        и набралось муки две пригоршни.<br><br>
+        Замесила тесто на сметане,<br>
+        пожарила в масле<br>
+        и положила колобок<br>
+        на окошечко остудить.
+      </p>
+    </div>
+    <div class="image">
+      <img src="images/02-baking.jpg">
+    </div>
+  </div>
+
+  <!-- РАЗВОРОТ 3 -->
+  <div class="spread">
+    <div class="text">
+      <p>
+        Колобок полежал-полежал,<br>
+        да вдруг и покатился —<br><br>
+        с окна на лавку,<br>
+        с лавки на пол,<br>
+        по полу — к дверям,<br>
+        через порог — в сени,<br>
+        из сеней — на крыльцо,<br>
+        с крыльца — на двор,<br>
+        со двора — за ворота,<br>
+        дальше и дальше.
+      </p>
+    </div>
+    <div class="image">
+      <img src="images/03-escape.jpg">
+    </div>
+  </div>
+
 </div>
 
 <script>
-  const pages = document.querySelectorAll('.page');
+  const spreads = document.querySelectorAll('.spread');
   let current = 0;
 
-  function showPage(index) {
-    pages[current].classList.remove('active');
-    current = index;
-    pages[current].classList.add('active');
+  function show(i) {
+    spreads[current].classList.remove('active');
+    current = i;
+    spreads[current].classList.add('active');
   }
 
-  function nextPage() {
-    if (current < pages.length - 1) {
-      showPage(current + 1);
-    }
+  function next() {
+    if (current < spreads.length - 1) show(current + 1);
   }
 
-  function prevPage() {
-    if (current > 0) {
-      showPage(current - 1);
-    }
+  function prev() {
+    if (current > 0) show(current - 1);
   }
 </script>
 
