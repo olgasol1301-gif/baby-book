@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Колобок — книга</title>
+<meta charset="UTF-8">
+<title>Колобок — книга</title>
 
 <style>
 * {
@@ -14,26 +14,27 @@
 body {
   background: #efe9dd;
   font-family: "Georgia", serif;
+  overflow: hidden;
 }
 
+/* КНИГА */
 .book {
   width: 100vw;
   height: 100vh;
   display: flex;
-  overflow: hidden;
+  transition: transform 0.6s ease;
 }
 
-/* ОДИН РАЗВОРОТ */
+/* РАЗВОРОТ */
 .spread {
   min-width: 100vw;
   height: 100vh;
   display: flex;
 }
 
-/* ЛЕВАЯ СТРАНИЦА — ТЕКСТ */
+/* ТЕКСТ */
 .text-page {
   width: 50%;
-  height: 100%;
   background: #faf6ec;
   padding: 80px 70px;
   display: flex;
@@ -47,10 +48,9 @@ body {
   white-space: pre-line;
 }
 
-/* ПРАВАЯ СТРАНИЦА — ИЛЛЮСТРАЦИЯ */
+/* ИЛЛЮСТРАЦИЯ */
 .image-page {
   width: 50%;
-  height: 100%;
   background: #f3efe6;
   display: flex;
   align-items: center;
@@ -62,335 +62,96 @@ body {
   height: 100%;
   object-fit: contain;
 }
+
+/* НАВИГАЦИЯ */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.45);
+  color: white;
+  border: none;
+  font-size: 28px;
+  padding: 12px 18px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.nav.left { left: 10px; }
+.nav.right { right: 10px; }
+
+/* МОБИЛЬНАЯ АДАПТАЦИЯ */
+@media (max-width: 768px) {
+  .spread {
+    flex-direction: column;
+  }
+
+  .text-page,
+  .image-page {
+    width: 100%;
+    height: 50%;
+    padding: 30px;
+  }
+
+  .text-page p {
+    font-size: 18px;
+  }
+}
 </style>
-
-    /* НАВИГАЦИЯ */
-    .nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.45);
-      color: white;
-      border: none;
-      font-size: 30px;
-      padding: 10px 16px;
-      cursor: pointer;
-      z-index: 10;
-    }
-
-    .nav.left { left: 10px; }
-    .nav.right { right: 10px; }
-
-    .nav:hover {
-      background: rgba(0,0,0,0.65);
-    }
-
-    /* МОБИЛЬНАЯ АДАПТАЦИЯ */
-    @media (max-width: 768px) {
-      .book {
-        aspect-ratio: 3 / 4;
-      }
-
-      .spread {
-        flex-direction: column;
-      }
-
-      .text, .image {
-        width: 100%;
-        height: 50%;
-      }
-
-      .text-inner {
-        font-size: 18px;
-      }
-    }
-  </style>
 </head>
 
 <body>
 
-<div class="book">
-  <button class="nav left" onclick="prev()">←</button>
-  <button class="nav right" onclick="next()">→</button>
+<button class="nav left" onclick="prev()">‹</button>
+<button class="nav right" onclick="next()">›</button>
 
-  <!-- ОБЛОЖКА -->
-  <div class="spread active">
-    <div class="text">
-      <div class="text-inner">
-        <h2>Колобок</h2>
-        <p>Русская народная сказка</p>
-      </div>
-    </div>
-    <div class="image">
-      <img src="images/cover.jpg" alt="Обложка">
-    </div>
-  </div>
+<div class="book" id="book">
 
   <!-- РАЗВОРОТ 1 -->
   <div class="spread">
-    <div class="text">
-      <div class="text-inner">
-        <p>
-          Жили-были старик со старухой.<br><br>
-
-          Однажды говорит старик:<br>
-          — Испеки, старуха, колобок.<br><br>
-
-          — Из чего испечь-то? Муки нет.<br><br>
-
-          — Эх, старуха! По коробу поскреби,<br>
-          по сусеку помети —<br>
-          авось муки и наберётся.
-        </p>
-      </div>
+    <div class="text-page">
+      <p><strong>Колобок</strong>
+Русская народная сказка</p>
     </div>
-    <div class="image">
-      <img src="images/01-baking-request.jpg" alt="Просьба испечь колобок">
+    <div class="image-page">
+      <img src="img/01.jpg">
     </div>
   </div>
 
   <!-- РАЗВОРОТ 2 -->
   <div class="spread">
-    <div class="text">
-      <div class="text-inner">
-        <p>
-          Старуха по коробу поскребла,<br>
-          по сусеку помела —<br>
-          и набралось муки две пригоршни.<br><br>
-
-          Замесила тесто на сметане,<br>
-          пожарила в масле<br>
-          и положила колобок<br>
-          на окошечко остудить.
-        </p>
-      </div>
+    <div class="text-page">
+      <p>Жили-были дед да баба...</p>
     </div>
-    <div class="image">
-      <img src="images/02-baking.jpg" alt="Как испекли колобка">
+    <div class="image-page">
+      <img src="img/02.jpg">
     </div>
   </div>
-
-  <!-- РАЗВОРОТ 3 -->
-  <div class="spread">
-    <div class="text">
-      <div class="text-inner">
-        <p>
-          Колобок полежал-полежал,<br>
-          да вдруг и покатился —<br><br>
-
-          с окна на лавку,<br>
-          с лавки на пол,<br>
-          по полу — к дверям,<br>
-          через порог — в сени,<br>
-          из сеней — на крыльцо,<br>
-          с крыльца — на двор,<br>
-          со двора — за ворота,<br>
-          дальше и дальше.
-        </p>
-      </div>
-    </div>
-    <div class="image">
-      <img src="images/03-escape.jpg" alt="Побег колобка">
-    </div>
-  </div>
-
-<div class="spread">
-  <div class="text">
-    <div class="text-inner">
-      <p>
-        Катится колобок по дороге,<br>
-        а навстречу ему заяц.<br><br>
-
-        — Колобок, колобок!<br>
-        Я тебя съем!<br><br>
-
-        — Не ешь меня, косой зайчик!<br>
-        Я тебе песенку спою!
-      </p>
-    </div>
-  </div>
-  <div class="image">
-    <img src="images/04-hare.jpg" alt="Колобок и заяц">
-  </div>
-</div>
-
-<div class="spread">
-  <div class="text">
-    <div class="text-inner">
-      <p>
-        Я по коробу скребён,<br>
-        по сусеку метён,<br>
-        на сметане мешон,<br>
-        да в масле пряжон,<br>
-        на окошке стужон.<br><br>
-
-        Я от дедушки ушёл,<br>
-        я от бабушки ушёл,<br>
-        от тебя, зайца,<br>
-        не хитро уйти!
-      </p>
-    </div>
-  </div>
-  <div class="image">
-    <img src="images/05-hare-song.jpg" alt="Колобок убегает от зайца">
-  </div>
-</div>
-
-<div class="spread">
-  <div class="text">
-    <div class="text-inner">
-      <p>
-        Катится колобок,<br>
-        а навстречу ему волк.<br><br>
-
-        — Колобок, колобок!<br>
-        Я тебя съем!<br><br>
-
-        — Не ешь меня, серый волк!<br>
-        Я тебе песенку спою!
-      </p>
-    </div>
-  </div>
-  <div class="image">
-    <img src="images/06-wolf.jpg" alt="Колобок и волк">
-  </div>
-</div>
-
-<div class="spread">
-  <div class="text">
-    <div class="text-inner">
-      <p>
-        Я по коробу скребён…<br><br>
-
-        Я от дедушки ушёл,<br>
-        я от бабушки ушёл,<br>
-        я от зайца ушёл,<br>
-        от тебя, волка,<br>
-        не хитро уйти!
-      </p>
-    </div>
-  </div>
-  <div class="image">
-    <img src="images/07-wolf-song.jpg" alt="Колобок убегает от волка">
-  </div>
-</div>
-
-<div class="spread">
-  <div class="text">
-    <div class="text-inner">
-      <p>
-        Катится колобок,<br>
-        а навстречу ему медведь.<br><br>
-
-        — Колобок, колобок!<br>
-        Я тебя съем.<br><br>
-
-        — Где тебе, косолапому,<br>
-        съесть меня!
-      </p>
-    </div>
-  </div>
-  <div class="image">
-    <img src="images/08-bear.jpg" alt="Колобок и медведь">
-  </div>
-</div>
-
-<div class="spread">
-  <div class="text">
-    <div class="text-inner">
-      <p>
-        Я по коробу скребён…<br><br>
-
-        Я от дедушки ушёл,<br>
-        я от бабушки ушёл,<br>
-        я от зайца ушёл,<br>
-        я от волка ушёл,<br>
-        от тебя, медведь,<br>
-        не хитро уйти!
-      </p>
-    </div>
-  </div>
-  <div class="image">
-    <img src="images/09-bear-song.jpg" alt="Колобок убегает от медведя">
-  </div>
-</div>
-
-<div class="spread">
-  <div class="text">
-    <div class="text-inner">
-      <p>
-        Катится колобок,<br>
-        а навстречу ему лиса.<br><br>
-
-        — Здравствуй, колобок!<br>
-        Какой ты хорошенький!
-      </p>
-    </div>
-  </div>
-  <div class="image">
-    <img src="images/10-fox.jpg" alt="Колобок и лиса">
-  </div>
-</div>
-
-<div class="spread">
-  <div class="text">
-    <div class="text-inner">
-      <p>
-        — Какая славная песенка!<br><br>
-
-        Только я, колобок,<br>
-        плохо слышу…<br><br>
-
-        Сядь-ка на мою мордочку<br>
-        да пропой ещё разок.
-      </p>
-    </div>
-  </div>
-  <div class="image">
-    <img src="images/11-fox-trick.jpg" alt="Хитрость лисы">
-  </div>
-</div>
-
-<div class="spread">
-  <div class="text">
-    <div class="text-inner">
-      <p>
-        Колобок прыгнул лисе на язык<br>
-        и запел песенку.<br><br>
-
-        А лиса — ам его! —<br>
-        и скушала.
-      </p>
-    </div>
-  </div>
-  <div class="image">
-    <img src="images/12-ending.jpg" alt="Конец сказки">
-  </div>
-</div>
 
 </div>
 
 <script>
-  const spreads = document.querySelectorAll('.spread');
-  let current = 0;
+let page = 0;
+const book = document.getElementById("book");
+const total = document.querySelectorAll(".spread").length;
 
-  function show(index) {
-    spreads[current].classList.remove('active');
-    current = index;
-    spreads[current].classList.add('active');
-  }
+function update() {
+  book.style.transform = `translateX(-${page * 100}vw)`;
+}
 
-  function next() {
-    if (current < spreads.length - 1) {
-      show(current + 1);
-    }
+function next() {
+  if (page < total - 1) {
+    page++;
+    update();
   }
+}
 
-  function prev() {
-    if (current > 0) {
-      show(current - 1);
-    }
+function prev() {
+  if (page > 0) {
+    page--;
+    update();
   }
+}
 </script>
 
 </body>
