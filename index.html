@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Колобок — книга</title>
+<title>Колобок — русская народная сказка</title>
 
 <style>
 * {
@@ -17,7 +17,6 @@ body {
   overflow: hidden;
 }
 
-/* КНИГА */
 .book {
   width: 100vw;
   height: 100vh;
@@ -25,7 +24,6 @@ body {
   transition: transform 0.6s ease;
 }
 
-/* РАЗВОРОТ */
 .spread {
   min-width: 100vw;
   height: 100vh;
@@ -48,7 +46,7 @@ body {
   white-space: pre-line;
 }
 
-/* ИЛЛЮСТРАЦИЯ */
+/* КАРТИНКА */
 .image-page {
   width: 50%;
   background: #f3efe6;
@@ -61,6 +59,25 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+/* ОБЛОЖКА */
+.cover {
+  background: #f7f1e6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cover h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.cover h2 {
+  font-size: 20px;
+  opacity: 0.8;
 }
 
 /* НАВИГАЦИЯ */
@@ -80,14 +97,11 @@ body {
 .nav.left { left: 10px; }
 .nav.right { right: 10px; }
 
-/* МОБИЛЬНАЯ АДАПТАЦИЯ */
+/* МОБИЛЬНЫЕ */
 @media (max-width: 768px) {
-  .spread {
-    flex-direction: column;
-  }
+  .spread { flex-direction: column; }
 
-  .text-page,
-  .image-page {
+  .text-page, .image-page {
     width: 100%;
     height: 50%;
     padding: 30px;
@@ -107,26 +121,106 @@ body {
 
 <div class="book" id="book">
 
-  <!-- РАЗВОРОТ 1 -->
-  <div class="spread">
-    <div class="text-page">
-      <p><strong>Колобок</strong>
-Русская народная сказка</p>
-    </div>
-    <div class="image-page">
-      <img src="img/01.jpg">
-    </div>
+<!-- ОБЛОЖКА -->
+<div class="spread">
+  <div class="text-page cover">
+    <h1>Колобок</h1>
+    <h2>Русская народная сказка</h2>
   </div>
+  <div class="image-page">
+    <img src="img/cover.jpg">
+  </div>
+</div>
 
-  <!-- РАЗВОРОТ 2 -->
-  <div class="spread">
-    <div class="text-page">
-      <p>Жили-были дед да баба...</p>
-    </div>
-    <div class="image-page">
-      <img src="img/02.jpg">
-    </div>
+<!-- 1 -->
+<div class="spread">
+  <div class="text-page">
+    <p>Жили-были дед да баба.
+Вот и просит дед:
+— Испеки мне, баба, колобок.</p>
   </div>
+  <div class="image-page">
+    <img src="img/01-baking.jpg">
+  </div>
+</div>
+
+<!-- 2 -->
+<div class="spread">
+  <div class="text-page">
+    <p>Баба по амбару помела,
+по сусекам поскребла,
+на сметане замесила,
+в печку посадила.</p>
+  </div>
+  <div class="image-page">
+    <img src="img/02-window.jpg">
+  </div>
+</div>
+
+<!-- 3 -->
+<div class="spread">
+  <div class="text-page">
+    <p>Испекла колобок,
+на окошко положила студиться.
+А колобок — прыг с окна
+да и покатился.</p>
+  </div>
+  <div class="image-page">
+    <img src="img/03-road.jpg">
+  </div>
+</div>
+
+<!-- 4 ЗАЯЦ -->
+<div class="spread">
+  <div class="text-page">
+    <p>Катится колобок, а навстречу ему заяц:
+— Колобок, колобок, я тебя съем!
+А колобок ему песенку спел
+и дальше покатился.</p>
+  </div>
+  <div class="image-page">
+    <img src="img/04-hare.jpg">
+  </div>
+</div>
+
+<!-- 5 ВОЛК -->
+<div class="spread">
+  <div class="text-page">
+    <p>Навстречу волк:
+— Колобок, я тебя съем!
+А колобок песенку спел
+и от волка ушёл.</p>
+  </div>
+  <div class="image-page">
+    <img src="img/05-wolf.jpg">
+  </div>
+</div>
+
+<!-- 6 МЕДВЕДЬ -->
+<div class="spread">
+  <div class="text-page">
+    <p>Навстречу медведь:
+— Колобок, я тебя съем!
+Колобок и ему песенку спел
+да укатился.</p>
+  </div>
+  <div class="image-page">
+    <img src="img/06-bear.jpg">
+  </div>
+</div>
+
+<!-- 7 ЛИСА -->
+<div class="spread">
+  <div class="text-page">
+    <p>Навстречу лиса:
+— Колобок, какая у тебя песенка хорошая!
+Сядь ко мне на носок,
+да спой ещё разок.</p>
+  </div>
+  <div class="image-page">
+    <img src="img/07-fox.jpg">
+  </div>
+</div>
 
 </div>
 
@@ -140,17 +234,11 @@ function update() {
 }
 
 function next() {
-  if (page < total - 1) {
-    page++;
-    update();
-  }
+  if (page < total - 1) { page++; update(); }
 }
 
 function prev() {
-  if (page > 0) {
-    page--;
-    update();
-  }
+  if (page > 0) { page--; update(); }
 }
 </script>
 
