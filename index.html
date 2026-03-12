@@ -3,20 +3,30 @@
 <head>
 
 <meta charset="UTF-8">
-
 <title>Сказки и потешки для самых маленьких</title>
 
 <style>
 
 body{
 margin:0;
-background:#f5f2e9;
+background:#f4f1e8;
 font-family: Georgia, serif;
 }
 
 .book{
-width:200mm;
+width:400mm;
 margin:auto;
+}
+
+.spread{
+
+display:flex;
+
+width:400mm;
+height:200mm;
+
+page-break-after:always;
+
 }
 
 .page{
@@ -28,37 +38,31 @@ display:flex;
 align-items:center;
 justify-content:center;
 
-page-break-after:always;
-
-}
-
-.page.image img{
-
-width:180mm;
-height:auto;
-
-}
-
-.page.text{
-
-padding:20mm;
 box-sizing:border-box;
 
 }
 
-.page.text p{
+.text{
 
-font-size:28px;
+padding:25mm;
+
+font-size:30px;
 line-height:1.5;
 
 text-align:center;
 
 }
 
-.song{
+.image img{
 
-font-size:26px;
-line-height:1.6;
+width:100%;
+height:auto;
+
+}
+
+.title{
+
+font-size:40px;
 
 }
 
@@ -70,252 +74,486 @@ line-height:1.6;
 
 <div class="book">
 
+
 <!-- ОБЛОЖКА -->
 
-<div class="page">
+<div class="spread">
 
-<div class="image">
-<img src="images/skazki/kolobok/cover.jpg">
-</div>
+<div class="page text title">
 
-<div class="text title">
 Сказки и потешки<br>
 для самых маленьких
+
+</div>
+
+<div class="page image">
+
+<img src="images/skazki/kolobok/cover.jpg">
+
 </div>
 
 </div>
 
 
-<!-- КОЛОБОК -->
 
-<div class="page">
-<div class="image"><img src="images/skazki/kolobok/01-baking-request.jpg"></div>
-<div class="text">
+<!-- КОЛОБОК 1 -->
+
+<div class="spread">
+
+<div class="page text">
+
 Жили-были старик со старухой.<br><br>
+
 — Испеки, старуха, колобок.<br>
 — Из чего испечь? Муки нет.<br><br>
+
 — По коробу поскреби,<br>
-по сусеку помети —
+по сусеку помети —<br>
 авось муки и наберётся.
+
 </div>
+
+<div class="page image">
+
+<img src="images/skazki/kolobok/01-baking-request.jpg">
+
+</div>
+
 </div>
 
 
-<div class="page">
-<div class="image"><img src="images/skazki/kolobok/02-baking.jpg"></div>
-<div class="text">
+
+<!-- КОЛОБОК 2 -->
+
+<div class="spread">
+
+<div class="page text">
+
 Старуха по коробу поскребла,<br>
 по сусеку помела —<br>
 и набралось муки.<br><br>
+
 Замесила тесто,<br>
 пожарила колобок<br>
-и положила на окошко
-остудить.
+и положила на окошко остудить.
+
 </div>
+
+<div class="page image">
+
+<img src="images/skazki/kolobok/02-baking.jpg">
+
+</div>
+
 </div>
 
 
-<div class="page">
-<div class="image"><img src="images/skazki/kolobok/03-escape.jpg"></div>
-<div class="text">
+
+<!-- КОЛОБОК 3 -->
+
+<div class="spread">
+
+<div class="page text">
+
 Колобок полежал-полежал<br>
 да вдруг и покатился —<br><br>
+
 с окна на лавку,<br>
 с лавки на пол,<br>
-по полу к дверям
+по полу к дверям<br>
 и дальше по дороге.
+
 </div>
+
+<div class="page image">
+
+<img src="images/skazki/kolobok/03-escape.jpg">
+
+</div>
+
 </div>
 
 
-<div class="page">
-<div class="image"><img src="images/skazki/kolobok/04-hare.jpg"></div>
-<div class="text">
+
+<!-- КОЛОБОК 4 -->
+
+<div class="spread">
+
+<div class="page text">
+
 Катится колобок по дороге,<br>
 а навстречу ему заяц.<br><br>
+
 — Колобок, колобок!<br>
 Я тебя съем!
+
 </div>
+
+<div class="page image">
+
+<img src="images/skazki/kolobok/04-hare.jpg">
+
+</div>
+
 </div>
 
 
-<div class="page">
-<div class="image"><img src="images/skazki/kolobok/05-hare-song.jpg"></div>
-<div class="text">
+
+<!-- КОЛОБОК 5 -->
+
+<div class="spread">
+
+<div class="page text">
+
 Я по коробу скребён,<br>
 по сусеку метён,<br>
 на сметане мешон,<br>
 в масле пряжон,<br>
 на окошке стужон.<br><br>
+
 Я от дедушки ушёл,<br>
 я от бабушки ушёл,<br>
-от тебя, зайца,
+от тебя, зайца,<br>
 не хитро уйти!
+
 </div>
+
+<div class="page image">
+
+<img src="images/skazki/kolobok/05-hare-song.jpg">
+
+</div>
+
 </div>
 
 
-<div class="page">
-<div class="image"><img src="images/skazki/kolobok/06-wolf.jpg"></div>
-<div class="text">
+
+<!-- КОЛОБОК 6 -->
+
+<div class="spread">
+
+<div class="page text">
+
 Катится колобок дальше,<br>
 а навстречу ему волк.<br><br>
+
 — Колобок, колобок!<br>
 Я тебя съем!
+
 </div>
+
+<div class="page image">
+
+<img src="images/skazki/kolobok/06-wolf.jpg">
+
+</div>
+
 </div>
 
 
-<div class="page">
-<div class="image"><img src="images/skazki/kolobok/07-wolf-song.jpg"></div>
-<div class="text">
+
+<!-- КОЛОБОК 7 -->
+
+<div class="spread">
+
+<div class="page text">
+
 Я от дедушки ушёл,<br>
 я от бабушки ушёл,<br>
 я от зайца ушёл,<br>
-от тебя, волка,
+от тебя, волка,<br>
 не хитро уйти!
+
 </div>
+
+<div class="page image">
+
+<img src="images/skazki/kolobok/07-wolf-song.jpg">
+
+</div>
+
 </div>
 
 
-<div class="page">
-<div class="image"><img src="images/skazki/kolobok/08-bear.jpg"></div>
-<div class="text">
+
+<!-- КОЛОБОК 8 -->
+
+<div class="spread">
+
+<div class="page text">
+
 Катится колобок дальше,<br>
 а навстречу медведь.
+
 </div>
+
+<div class="page image">
+
+<img src="images/skazki/kolobok/08-bear.jpg">
+
+</div>
+
 </div>
 
 
-<div class="page">
-<div class="image"><img src="images/skazki/kolobok/09-bear-song.jpg"></div>
-<div class="text">
+
+<!-- КОЛОБОК 9 -->
+
+<div class="spread">
+
+<div class="page text">
+
 Я от дедушки ушёл,<br>
 я от бабушки ушёл,<br>
 я от зайца ушёл,<br>
-я от волка ушёл,
-и от тебя, медведь,
+я от волка ушёл,<br>
+и от тебя, медведь,<br>
 уйду!
+
 </div>
+
+<div class="page image">
+
+<img src="images/skazki/kolobok/09-bear-song.jpg">
+
+</div>
+
 </div>
 
 
-<div class="page">
-<div class="image"><img src="images/skazki/kolobok/10-fox.jpg"></div>
-<div class="text">
+
+<!-- КОЛОБОК 10 -->
+
+<div class="spread">
+
+<div class="page text">
+
 Катится колобок дальше,<br>
 а навстречу лиса.
+
 </div>
+
+<div class="page image">
+
+<img src="images/skazki/kolobok/10-fox.jpg">
+
+</div>
+
 </div>
 
 
-<div class="page">
-<div class="image"><img src="images/skazki/kolobok/11-fox-trick.jpg"></div>
-<div class="text">
+
+<!-- КОЛОБОК 11 -->
+
+<div class="spread">
+
+<div class="page text">
+
 — Какая славная песенка!<br>
 Только я плохо слышу.<br><br>
-Сядь ко мне на носок
+
+Сядь ко мне на носок<br>
 да пропой ещё разок.
+
 </div>
+
+<div class="page image">
+
+<img src="images/skazki/kolobok/11-fox-trick.jpg">
+
+</div>
+
 </div>
 
 
-<div class="page">
-<div class="image"><img src="images/skazki/kolobok/12-ending.jpg"></div>
-<div class="text">
-Колобок прыгнул
-лисе на нос
+
+<!-- КОЛОБОК 12 -->
+
+<div class="spread">
+
+<div class="page text">
+
+Колобок прыгнул<br>
+лисе на нос<br>
 и запел песенку.<br><br>
-А лиса — ам!
+
+А лиса — ам!<br>
 и съела его.
+
 </div>
+
+<div class="page image">
+
+<img src="images/skazki/kolobok/12-ending.jpg">
+
 </div>
+
+</div>
+
 
 
 <!-- ПЕРЕХОД -->
 
-<div class="page">
+<div class="spread">
 
-<div class="image">
-<!-- здесь будет новая картинка -->
-</div>
+<div class="page text">
 
-<div class="text">
 Сказки закончились.<br><br>
-А игры и песенки
+
+А игры и песенки<br>
 только начинаются.
+
+</div>
+
+<div class="page image">
+
+<!-- сюда вставим новую картинку -->
+
 </div>
 
 </div>
+
 
 
 <!-- ПОТЕШКИ -->
 
-<div class="page">
-<div class="image"><img src="images/poteshki/01-ladushki.jpg"></div>
-<div class="text">
+<div class="spread">
+
+<div class="page text">
+
 Ладушки, ладушки!<br>
-Где были? — У бабушки.<br>
+Где были? — У бабушки.<br><br>
+
 Что ели? — Кашку.<br>
 Что пили? — Бражку.
+
 </div>
+
+<div class="page image">
+
+<img src="images/poteshki/01-ladushki.jpg">
+
+</div>
+
 </div>
 
 
-<div class="page">
-<div class="image"><img src="images/poteshki/02-soroka-beloboka.jpg"></div>
-<div class="text">
+
+<div class="spread">
+
+<div class="page text">
+
 Сорока-белобока<br>
 кашку варила,<br>
 деток кормила.
+
 </div>
+
+<div class="page image">
+
+<img src="images/poteshki/02-soroka-beloboka.jpg">
+
+</div>
+
 </div>
 
 
-<div class="page">
-<div class="image"><img src="images/poteshki/03-koza-rogataya.jpg"></div>
-<div class="text">
-Идёт коза рогатая
+
+<div class="spread">
+
+<div class="page text">
+
+Идёт коза рогатая<br>
 за малыми ребятами.
+
 </div>
+
+<div class="page image">
+
+<img src="images/poteshki/03-koza-rogataya.jpg">
+
+</div>
+
 </div>
 
 
-<div class="page">
-<div class="image"><img src="images/poteshki/04-po-kochkam.jpg"></div>
-<div class="text">
+
+<div class="spread">
+
+<div class="page text">
+
 По кочкам,<br>
 по кочкам,<br>
 в ямку — бух!
+
 </div>
+
+<div class="page image">
+
+<img src="images/poteshki/04-po-kochkam.jpg">
+
+</div>
+
 </div>
 
 
-<div class="page">
-<div class="image"><img src="images/poteshki/05-ehali-ehali.jpg"></div>
-<div class="text">
-Ехали, ехали
+
+<div class="spread">
+
+<div class="page text">
+
+Ехали, ехали<br>
 в лес за орехами.
+
 </div>
+
+<div class="page image">
+
+<img src="images/poteshki/05-ehali-ehali.jpg">
+
+</div>
+
 </div>
 
 
-<div class="page">
-<div class="image"><img src="images/poteshki/06-ai-lyuli.jpg"></div>
-<div class="text">
-Ай люли, люли,
+
+<div class="spread">
+
+<div class="page text">
+
+Ай люли, люли,<br>
 прилетели гули.
+
 </div>
+
+<div class="page image">
+
+<img src="images/poteshki/06-ai-lyuli.jpg">
+
+</div>
+
 </div>
 
 
-<div class="page">
-<div class="image"><img src="images/poteshki/07-bayu-bai.jpg"></div>
-<div class="text">
-Баю-бай, баю-бай,
+
+<div class="spread">
+
+<div class="page text">
+
+Баю-бай, баю-бай,<br>
 ты собачка не лай.
+
 </div>
+
+<div class="page image">
+
+<img src="images/poteshki/07-bayu-bai.jpg">
+
 </div>
+
+</div>
+
+
 
 </div>
 
