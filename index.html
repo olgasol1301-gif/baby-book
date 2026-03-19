@@ -95,6 +95,21 @@ padding:20mm;
 box-sizing:border-box;
 }
 
+@page {
+  size: 200mm 200mm;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+}
+
+.spread {
+  page-break-after: always;
+  width: 200mm;
+  height: 200mm;
+}
+
 </style>
 
 </head>
@@ -855,7 +870,7 @@ box-sizing:border-box;
 
 <div class="spread">
 
-<div class="page text text-medium">
+<div class="page text text-small">
 
 Ладушки, ладушки,<br>
 Где были? — У бабушки.<br><br>
@@ -884,7 +899,7 @@ box-sizing:border-box;
 
 <div class="spread">
 
-<div class="page text text-small">
+<div class="page text text-xs">
 
 Сорока-белобока<br>
 кашку варила,<br>
